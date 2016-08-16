@@ -14,19 +14,21 @@ import me.totalfreedom.totalfreedommod.banning.*;
 public class Command_tban extends FreedomCommand
 {
     public boolean run(final CommandSender sender, final Player playerSender, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole) {
-        if (args.length < 1) {
+        if (args.length < 1)
+        {
             return false;
         }
         final Player player = this.getPlayer(args[0]);
-        if (player == null) {
+        if (player == null)
+        {
             this.msg(FreedomCommand.PLAYER_NOT_FOUND, ChatColor.RED);
             return true;
         }
         String reason;
-        if (args.length > 1) {
+        if (args.length > 1)
+        {
             reason = StringUtils.join((Object[])args, " ", 1, args.length);
-        }
-        else {
+        } else {
             reason = "You have been temporarily banned for 5 minutes.";
         }
         final Location targetPos = player.getLocation();
@@ -37,9 +39,11 @@ public class Command_tban extends FreedomCommand
             }
         }
         FUtil.adminAction(sender.getName(), "Tempbanning: " + player.getName() + " for 5 minutes.", true);
-        if (reason != null && reason != "You have been temporarily banned for 5 minutes.") {
+        if (reason != null && reason != "You have been temporarily banned for 5 minutes.")
+        {
         FUtil.bcastMsg("Reason: " + reason, ChatColor.RED);
-        }        ((TotalFreedomMod)this.plugin).bm.addBan(Ban.forPlayer(player, sender, FUtil.parseDateOffset("5m"), reason));
+        }
+        ((TotalFreedomMod)this.plugin).bm.addBan(Ban.forPlayer(player, sender, FUtil.parseDateOffset("5m"), reason));
         player.kickPlayer(ChatColor.RED + "You have been temporarily banned for five minutes. Please read totalfreedom.me for more info.");
         return true;
     }
