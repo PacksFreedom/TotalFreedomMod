@@ -1,6 +1,5 @@
 package me.totalfreedom.totalfreedommod.command;
 
-
 import me.totalfreedom.totalfreedommod.command.CommandParameters;
 import me.totalfreedom.totalfreedommod.command.CommandPermissions;
 import me.totalfreedom.totalfreedommod.command.FreedomCommand;
@@ -17,14 +16,14 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Need help from a admin? Use this!", usage = "/<command> <message to admins... >", aliases = "ah,helpme,contactadmins")
 public class Command_adminhelp extends FreedomCommand
 {
-
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
     
-            if (args.length < 1) {
-    return false;
-}
+    if (args.length < 1)
+    {
+        return false;
+    }
     Player player = (Player) sender;
     
     String message = StringUtils.join(ArrayUtils.subarray(args, 0, args.length), " ");
