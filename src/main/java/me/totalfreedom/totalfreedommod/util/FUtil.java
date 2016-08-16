@@ -361,7 +361,7 @@ public class FUtil
             {
             }
         } while (checkClass.getSuperclass() != Object.class
-                && ((checkClass = checkClass.getSuperclass()) != null));
+            && ((checkClass = checkClass.getSuperclass()) != null));
 
         return null;
     }
@@ -370,13 +370,13 @@ public class FUtil
     {
         return CHAT_COLOR_POOL.get(RANDOM.nextInt(CHAT_COLOR_POOL.size()));
     }
-    
-public static String colorize(String string)
-    {
+
+    public static String colorize(String string)
+        {
         String message = string;
         String[] banned = {"&k","&n","m","&0"};
         String[] n = {"","","",""};
-        for(String code : banned)
+        for (String code : banned)
         {
             message = StringUtils.replaceEach(message, banned, n);
         }
