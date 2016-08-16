@@ -12,20 +12,23 @@ import me.totalfreedom.totalfreedommod.banning.*;
 import java.util.*;
 
 @CommandPermissions(level = Rank.SUPER_ADMIN, source = SourceType.BOTH, blockHostConsole = true)
-@CommandParameters(description = "Makes someone GTFO (deop and ip ban by username).", usage = "/<command> <partialname> <reason>")
+@CommandParameters(description = "Makes someone GTFO (deop and ip ban by username).", usage = "/<command> <partialname> [reason]")
 public class Command_gtfo extends FreedomCommand
 {
     public boolean run(final CommandSender sender, final Player playerSender, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole) {
-        if (args.length == 0) {
+        if (args.length == 0)
+        {
             return false;
         }
         final Player player = this.getPlayer(args[0]);
-        if (player == null) {
+        if (player == null)
+        {
             this.msg(FreedomCommand.PLAYER_NOT_FOUND, ChatColor.RED);
             return true;
         }
         String reason = null;
-        if (args.length >= 2) {
+        if (args.length >= 2)
+        {
             reason = org.apache.commons.lang3.StringUtils.join(ArrayUtils.subarray((Object[])args, 1, args.length), " ");
         }
         FUtil.bcastMsg(player.getName() + " has been a VERY naughty, naughty boy.", ChatColor.RED);
@@ -46,7 +49,8 @@ public class Command_gtfo extends FreedomCommand
         }
         final String ip = FUtil.getFuzzyIp(Ips.getIp(player));
         final StringBuilder bcast = new StringBuilder().append(ChatColor.RED).append("Banning: ").append(player.getName()).append(", IP: ").append(ip);
-        if (reason != null) {
+        if (reason != null)
+        {
             bcast.append(" - Reason: ").append(ChatColor.YELLOW).append(reason);
         }
         FUtil.bcastMsg(bcast.toString());
