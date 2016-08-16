@@ -11,14 +11,21 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Undisguise all players on the server", usage = "/<command>", aliases = "uall")
 public class Command_undisguiseall extends FreedomCommand
 {
-
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (DisallowedDisguises.disabled)
+        final PluginManager pm = server.getPluginManager();
+        
+        Plugin LibsDisguises = null;
+        
+        if (server.getPluginManager().getPlugin("LibsDisguises") != null)
         {
-            msg("Disguises are not enabled.");
-            return true;
+            LibsDisguises = pm.getPlugin("LibsDisguises");
+        }
+        else
+        {
+            msg("LibsDisguises is not enabled on this this server");
+            // return?
         }
         
         FUtil.adminAction(sender.getName(), "Undisguising all non-admins", true);
