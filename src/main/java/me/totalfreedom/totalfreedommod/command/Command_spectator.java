@@ -11,8 +11,10 @@ import org.bukkit.*;
 public class Command_spectator extends FreedomCommand
 {
     public boolean run(final CommandSender sender, final Player playerSender, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole) {
-        if (args.length == 0) {
-            if (this.isConsole()) {
+        if (args.length == 0)
+        {
+            if (this.isConsole())
+            {
                 sender.sendMessage("When used from the console, you must define a target player.");
                 return true;
             }
@@ -23,15 +25,18 @@ public class Command_spectator extends FreedomCommand
         }
         else {
             this.checkRank(Rank.SUPER_ADMIN);
-            if (args[0].equals("-a")) {
-                for (final Player targetPlayer : this.server.getOnlinePlayers()) {
+            if (args[0].equals("-a"))
+            {
+                for (final Player targetPlayer : this.server.getOnlinePlayers())
+                {
                     targetPlayer.setGameMode(GameMode.SPECTATOR);
                 }
                 FUtil.adminAction(sender.getName(), "Changing everyone's gamemode to spectator", false);
                 return true;
             }
             final Player player = this.getPlayer(args[0]);
-            if (player == null) {
+            if (player == null)
+            {
                 sender.sendMessage(FreedomCommand.PLAYER_NOT_FOUND);
                 return true;
             }
