@@ -81,7 +81,8 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
     public LibsDisguisesBridge ldb;
     public WorldEditBridge web;
     
-    public void load() {
+    public void load()
+    {
         TotalFreedomMod.pluginName = ((TotalFreedomMod)this.plugin).getDescription().getName();
         TotalFreedomMod.pluginVersion = ((TotalFreedomMod)this.plugin).getDescription().getVersion();
         FLog.setPluginLogger(((TotalFreedomMod)this.plugin).getLogger());
@@ -89,7 +90,8 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
         TotalFreedomMod.build.load((TotalFreedomMod)this.plugin);
     }
     
-    public void enable() {
+    public void enable()
+    {
         FLog.info("Created by Madgeek1450 and Prozza");
         FLog.info("Version " + TotalFreedomMod.build.formattedVersion());
         FLog.info("Compiled " + TotalFreedomMod.build.date + " by " + TotalFreedomMod.build.author);
@@ -170,23 +172,28 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
         }.runTaskLater((Plugin)this.plugin, 60L);
     }
     
-    public void disable() {
+    public void disable()
+    {
         this.bridges.stop();
         this.services.stop();
         this.server.getScheduler().cancelTasks((Plugin)this.plugin);
         FLog.info("Plugin disabled");
     }
     
-    public static TotalFreedomMod plugin() {
-        for (final Plugin plugin : Bukkit.getPluginManager().getPlugins()) {
-            if (plugin.getName().equalsIgnoreCase(TotalFreedomMod.pluginName)) {
+    public static TotalFreedomMod plugin()
+    {
+        for (final Plugin plugin : Bukkit.getPluginManager().getPlugins())
+        {
+            if (plugin.getName().equalsIgnoreCase(TotalFreedomMod.pluginName))
+            {
                 return (TotalFreedomMod)plugin;
             }
         }
         return null;
     }
     
-    static {
+    static
+    {
         build = new BuildProperties();
     }
     
@@ -199,7 +206,8 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
         public String date;
         public String head;
         
-        public void load(final TotalFreedomMod plugin) {
+        public void load(final TotalFreedomMod plugin)
+        {
             try {
                 Properties props;
                 try (final InputStream in = plugin.getResource("build.properties")) {
@@ -219,7 +227,8 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
             }
         }
         
-        public String formattedVersion() {
+        public String formattedVersion()
+        {
             return TotalFreedomMod.pluginVersion + "." + this.number + " (" + this.head + ")";
         }
     }
