@@ -34,7 +34,7 @@ public class Command_adminchat extends FreedomCommand
         {
             if(StringUtils.join(args, " ").contains("&k") || StringUtils.join(args, " ").contains("&0") || StringUtils.join(args, " ").contains("&m"))
             {
-                msg("You can't use Forbidden Colors!");
+                msg("You can't use forbidden colors!");
                 return true; 
             }
             plugin.cm.adminChat(sender, FUtil.colorize(StringUtils.join(args, " ")));
