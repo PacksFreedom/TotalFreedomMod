@@ -12,7 +12,6 @@ import org.bukkit.plugin.PluginManager;
 @CommandParameters(description = "Toggle the disguise plugin", usage = "/<command>", aliases = "dtoggle")
 public class Command_disguisetoggle extends FreedomCommand
 {
-
     @Override
     public boolean run(CommandSender sender, Player playerSender, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -27,7 +26,7 @@ public class Command_disguisetoggle extends FreedomCommand
         }
         else
         {
-            msg("LibsDisguises has not been found.");
+            msg("LibsDisguises is not enabled on this this server");
             return true;
         }
         
@@ -44,7 +43,6 @@ public class Command_disguisetoggle extends FreedomCommand
         {
             pm.enablePlugin(LibsDisguises);
         }
-
         return true;
     }
 }
