@@ -11,7 +11,8 @@ import me.totalfreedom.totalfreedommod.util.*;
 public class Command_consolesay extends FreedomCommand
 {
     public boolean run(final CommandSender sender, final Player playerSender, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole) {
-        if (args.length > 0) {
+        if (args.length > 0)
+        {
             FUtil.bcastMsg(String.format("§7[CONSOLE]§f<§c%s§f> %s", sender.getName(), StringUtils.join((Object[])args, " ")));
         }
         return true;
