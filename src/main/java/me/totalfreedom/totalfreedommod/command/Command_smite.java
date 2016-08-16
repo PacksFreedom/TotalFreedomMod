@@ -12,15 +12,18 @@ import org.bukkit.*;
 public class Command_smite extends FreedomCommand
 {
     public boolean run(final CommandSender sender, final Player playerSender, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole) {
-        if (args.length < 1) {
+        if (args.length < 1)
+        {
             return false;
         }
         final Player player = this.getPlayer(args[0]);
         String reason = null;
-        if (args.length > 1) {
+        if (args.length > 1)
+        {
             reason = StringUtils.join((Object[])args, " ", 1, args.length);
         }
-        if (player == null) {
+        if (player == null)
+        {
             this.msg(FreedomCommand.PLAYER_NOT_FOUND);
             return true;
         }
@@ -28,15 +31,17 @@ public class Command_smite extends FreedomCommand
         return true;
     }
     
-    public static void smite(final Player player) {
+    public static void smite(final Player player)
+    {
         smite(player, null, null);
     }
     
-    public static void smite(final Player player, final String reason, String sender) {
+    public static void smite(final Player player, final String reason, String sender)
+    {
         FUtil.bcastMsg(player.getName() + " has been a naughty, naughty boy.", ChatColor.RED);
         if (reason != null && sender != null) {
             FUtil.bcastMsg("  Reason: " + reason, ChatColor.RED);
-        }
+    }
         player.setOp(false);
         player.setGameMode(GameMode.SURVIVAL);
         player.getInventory().clear();
@@ -51,7 +56,7 @@ public class Command_smite extends FreedomCommand
         player.setHealth(0.0);
         if (reason != null && sender != null) {
             player.sendMessage(ChatColor.RED + "You've been smitten. Reason: " + reason);
-            player.sendMessage(ChatColor.RED + "Admin: " + sender);
+            player.sendMessage(ChatColor.RED + "Smitten by: " + sender);
         }
     }
 }
