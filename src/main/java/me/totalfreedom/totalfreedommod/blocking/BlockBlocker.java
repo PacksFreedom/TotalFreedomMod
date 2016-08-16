@@ -15,15 +15,15 @@ public class BlockBlocker extends FreedomService
     {
         super(plugin);
     }
-    
+
     protected void onStart()
     {
     }
-    
+
     protected void onStop()
     {
     }
-    
+
     @EventHandler(priority = EventPriority.HIGH)
     public void onBlockPlace(final BlockPlaceEvent event)
     {
