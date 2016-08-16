@@ -13,13 +13,15 @@ import java.util.*;
 public class Command_say extends FreedomCommand
 {
     public boolean run(final CommandSender sender, final Player playerSender, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole) {
-        if (args.length == 0) {
+        if (args.length == 0)
+        {
             return false;
         }
         final String message = StringUtils.join((Object[])args, " ");
         if (senderIsConsole && FUtil.isFromHostConsole(sender.getName()) && message.equalsIgnoreCase("WARNING: Server is restarting, you will be kicked")) {
             FUtil.bcastMsg("Server is going offline.", ChatColor.GRAY);
-            for (final Player player : this.server.getOnlinePlayers()) {
+            for (final Player player : this.server.getOnlinePlayers())
+            {
                 player.kickPlayer("Server is going offline, come back in about 20 seconds.");
             }
             this.server.shutdown();
