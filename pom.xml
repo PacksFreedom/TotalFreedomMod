@@ -4,7 +4,7 @@
 
     <groupId>me.totalfreedom</groupId>
     <artifactId>totalfreedom</artifactId>
-    <version>5.0</version>
+    <version>5.0.1</version>
     <packaging>jar</packaging>
 
     <properties>
@@ -54,6 +54,13 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.6</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>me.libraryaddict</groupId>
+            <artifactId>LibsDisguises</artifactId>
+            <version>9.0.9</version>
             <scope>provided</scope>
         </dependency>
 
