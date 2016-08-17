@@ -46,7 +46,7 @@ public class CommandBlockerEntry
 
         if (action == CommandBlockerAction.BLOCK_UNKNOWN)
         {
-            FUtil.playerMsg(sender, "Unknown command. Type \"help\" for help.", ChatColor.RESET);
+            FUtil.playerMsg(sender, "Unknown command. Type \"/help\" for help.", ChatColor.RESET);
             return;
         }
 

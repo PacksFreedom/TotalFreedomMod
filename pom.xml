@@ -58,10 +58,11 @@
         </dependency>
         
         <dependency>
-            <groupId>me.libraryaddict</groupId>
+            <groupId>me.libaryaddict.disguise</groupId>
             <artifactId>LibsDisguises</artifactId>
             <version>9.0.9</version>
-            <scope>provided</scope>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/LibsDisguises.jar</systemPath>
         </dependency>
 
         <dependency>

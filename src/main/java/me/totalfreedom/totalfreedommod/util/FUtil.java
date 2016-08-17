@@ -374,7 +374,7 @@ public class FUtil
     public static String colorize(String string)
         {
         String message = string;
-        String[] banned = {"&k","&n","m","&0"};
+        String[] banned = {"&k","&n","&m","&0"};
         String[] n = {"","","",""};
         for (String code : banned)
         {

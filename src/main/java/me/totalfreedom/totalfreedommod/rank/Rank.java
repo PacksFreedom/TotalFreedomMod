@@ -1,7 +1,7 @@
 package me.totalfreedom.totalfreedommod.rank;
 
 import org.bukkit.*;
-// Do we need lombok?
+
 public enum Rank implements Displayable
 {
     IMPOSTOR("an", "Impostor", Type.PLAYER, "Imp", ChatColor.YELLOW), 

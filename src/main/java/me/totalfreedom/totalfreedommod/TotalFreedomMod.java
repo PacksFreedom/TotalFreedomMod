@@ -81,6 +81,7 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
     public LibsDisguisesBridge ldb;
     public WorldEditBridge web;
     
+    @Override
     public void load()
     {
         TotalFreedomMod.pluginName = ((TotalFreedomMod)this.plugin).getDescription().getName();
@@ -90,6 +91,7 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
         TotalFreedomMod.build.load((TotalFreedomMod)this.plugin);
     }
     
+    @Override
     public void enable()
     {
         FLog.info("Created by Madgeek1450 and Prozza");
@@ -153,11 +155,11 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
         this.bridges = (ServiceManager<TotalFreedomMod>)new ServiceManager(this.plugin);
         this.btb = (BukkitTelnetBridge)this.bridges.registerService((Class)BukkitTelnetBridge.class);
         this.esb = (EssentialsBridge)this.bridges.registerService((Class)EssentialsBridge.class);
-		this.ldb = (LibsDisguisesBridge)this.bridges.registerService((Class)LibsDisguisesBridge.class);
+	this.ldb = (LibsDisguisesBridge)this.bridges.registerService((Class)LibsDisguisesBridge.class);
         this.web = (WorldEditBridge)this.bridges.registerService((Class)WorldEditBridge.class);
         this.bridges.start();
         timer.update();
-        FLog.info("Version " + TotalFreedomMod.pluginVersion + " for " + "v1_10_R1" + " enabled in " + timer.getTotal() + "ms");
+        FLog.info("Version " + TotalFreedomMod.pluginVersion + " for " + ServerInterface.COMPILE_NMS_VERSION + " enabled in " + timer.getTotal() + "ms");
         try {
             final Metrics metrics = new Metrics((Plugin)this.plugin);
             metrics.start();
@@ -166,12 +168,14 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
             FLog.warning("Failed to submit metrics data: " + ex.getMessage());
         }
         new BukkitRunnable() {
+            @Override
             public void run() {
                 ((TotalFreedomMod)TotalFreedomMod.this.plugin).pa.autoAddSpawnpoints();
             }
         }.runTaskLater((Plugin)this.plugin, 60L);
     }
     
+    @Override
     public void disable()
     {
         this.bridges.stop();
@@ -215,8 +219,8 @@ public class TotalFreedomMod extends AeroPlugin<TotalFreedomMod>
                     props.load(in);
                 }
                 this.author = props.getProperty("program.build.author", "unknown");
-                this.codename = props.getProperty("program.build.codename", "unknown");
-                this.version = props.getProperty("program.build.version", "unknown");
+                this.codename = props.getProperty("program.build.codename", "Electrum");
+                this.version = props.getProperty("program.build.version", "5.0");
                 this.number = props.getProperty("program.build.number", "1");
                 this.date = props.getProperty("program.build.date", "unknown");
                 this.head = props.getProperty("program.build.head", "unknown");
